@@ -16,6 +16,8 @@ html {
   font-family: 'Fira Sans Condensed', sans-serif;
   font-size: 18px;
   background-color: #1b1919;
+  display: flex;
+  justify-content: center;
 }
 
 h1,
@@ -35,4 +37,307 @@ fieldset {
 ul,
 ol {
   list-style: none;
+}
+
+.visually-hidden {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 710px 400px; /*  */
+  justify-content: center;
+  align-content: center;
+  gap: 0 30px;
+}
+
+/* Видео */
+.result {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  max-height: 534px;
+}
+
+.result__video-container {
+  position: relative;
+  inline-size: 711px;
+  block-size: 386px;
+  margin-block-end: 16px;
+}
+
+.result__video {
+  block-size: 100%;
+  inline-size: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Search */
+.search-form {
+  display: flex;
+  width: 100%;
+}
+
+.search-form__fieldset {
+  border: none;
+}
+
+.search-form__fieldset-title {
+  margin-block-end: 2px;
+  color: currentColor;
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.search-form__textfield {
+  width: 225px;
+  margin-top: 3px;
+  border-top: 1px solid #fff;
+  border-right: 1px solid transparent;
+  border-bottom: 1px solid #fff;
+  border-left: 1px solid transparent;
+  padding: 2px 0 0;
+  color: rgba(255, 255, 255, 0.7);
+  font-family: inherit;
+  font-size: 18px;
+  background-color: transparent;
+  appearance: none;
+  cursor: pointer;
+}
+
+.search-form__textfield:hover {
+  cursor: text;
+}
+
+.search-form__textfield:active {
+  border-color: #fff;
+}
+
+.search-form__fieldset:not(:last-child) {
+  padding-inline-end: 40px;
+}
+
+.search-form__checkbox-list {
+  padding-block-start: 4px;
+}
+
+.search-form__label {
+  cursor: pointer;
+}
+
+.search-form__label:hover .search-form__label-text {
+  text-decoration: underline;
+}
+
+.search-form__label:not(:last-child) {
+  margin-inline-end: 9px;
+}
+
+.search-form__label:has(.search-form__checkbox:focus-visible) {
+  outline: 1px solid #fff;
+  outline-offset: 1px;
+}
+
+.search-form__pseudo-checkbox {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 19px;
+  height: 19px;
+  border: 1px solid #fff;
+}
+
+.search-form__pseudo-checkbox::after {
+  content: " ";
+  width: 15px;
+  height: 15px;
+  background-color: transparent;
+  background-color: #fff;
+  scale: 0%;
+}
+
+.search-form__checkbox:checked + .search-form__pseudo-checkbox::after {
+  background-color: #fff;
+  scale: 100%;
+  transition: all 0.4s; /* Убил слишком много времени чтобы найти как так сделать */
+}
+
+.search-form__label-text {
+  display: inline-block;
+  vertical-align: top;
+}
+
+/* Титульник поисковика */
+.title {
+  font-family: "Oswald", sans-serif;
+  font-size: 75px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 94%;
+  text-transform: uppercase;
+  padding-left: 2px;
+}
+
+.content__accent {
+  color: #545050;
+}
+
+/* Результаты поиска / Content-а */
+.content__list {
+  position: relative;
+  display: block;
+  max-height: 298px;
+  max-width: 398px;
+  overflow-y: auto;
+  padding-block-start: 2px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* Не работает в фоксе не стал париться
+.content__list::-webkit-scrollbar {
+  width: 2px;
+}
+
+.content__list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.content__list::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
+} */
+
+.content__list-item {
+  margin-block: 2px;
+  margin-inline: 2px;
+  padding-block-end: 30px;
+}
+
+.content__list-item:first-child {
+  margin-block-start: 0;
+}
+
+.content__details {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  height: inherit;
+  width: inherit;
+}
+
+.content__card-link {
+  display: block;
+  text-decoration: none;
+}
+
+.content__card-link:focus {
+  outline: none;
+}
+.content__card-link:active {
+  background-color: #545050;
+}
+
+.content__card-link:hover {
+  text-decoration: underline;
+  text-decoration-color: #fff;
+  text-decoration-thickness: 1px;
+}
+
+.content__card-link:focus-visible {
+  outline: 1px solid #fff;
+}
+
+.content__card-link_current {
+  background-color: #545050;
+}
+
+.content__video-card-description-container {
+  min-width: 200px;
+  margin: 2px 0 2px 2px;
+}
+
+.content__video-card-title {
+  padding-inline: 1px 4px;
+  padding-block-start: 2px;
+  overflow: hidden;
+  color: #fff;
+  font-family: Oswald, sans-serif;
+  font-size: 30px;
+  line-height: 0.98;
+  text-transform: uppercase;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.content__video-card-description {
+  padding-inline-start: 1px;
+  padding-block-end: 2px;
+  color: #fff;
+  line-height: 0.9;
+}
+
+.content__video-card {
+  display: flex;
+  justify-content: space-between;
+}
+
+.content__video-card-thumbnail {
+  width: 194px;
+  height: 103px;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Кнопки */
+.button {
+  block-size: 34px;
+  padding: 6px 73.5px; /* Скорее всего нехорошо так делать */
+  border: 1px solid #fff;
+  background: #1b1919;
+  color: #fff;
+  text-align: center;
+  font-family: inherit;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  cursor: pointer;
+}
+
+.search-form__submit-button {
+  align-self: end;
+}
+
+.more-button {
+  min-width: 389px;
+  width: 100%;
+  padding-block: 6px;
+}
+
+.button:focus {
+  outline: none;
+}
+
+.button:hover {
+  text-decoration: underline;
+}
+
+.button:active {
+  background: #545050;
+  text-decoration: none;
+}
+
+.search-form__textfield:focus-visible,
+.button:focus-visible {
+  outline: 1px solid #fff;
+  outline-offset: 2px;
 }
